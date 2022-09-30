@@ -14,5 +14,5 @@ install_new_packs(analysis_packs)
 # Load packages
 load_my_packs(analysis_packs)
 
-analysis_objects <- ls()
+analysis_objects <- c(ls(), "analysis_objects")
 # Data -----

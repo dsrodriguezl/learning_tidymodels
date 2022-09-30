@@ -34,7 +34,11 @@ capture.output(sessionInfo()
 ## Detach/unload packages
 lapply(script_packs, unloadNamespace)
 
-# ## Clear environment
-# rm(list=ls())
+## Clear environment
+objects_list <- ls() |> 
+  str_remove_all(analysis_objects |>
+                   paste(collapse = "|"))
+rm(list = c(objects_list[nzchar(objects_list)], "objects_list"))
+
 
 

@@ -11,4 +11,4 @@ modeling and machine learning in R.
 
 I structure the data manipulations and analyses within the project with
 reproducible science principle in mind, including the usage of "master" script 
-([Analysis.R](`r here::here("Analysis.R")`)) to execute the whole collection of procedures in a reproducible manner.
+([Analysis.R](Analysis.R)`)) to execute the whole collection of procedures in a reproducible manner.

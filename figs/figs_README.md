@@ -1,5 +1,9 @@
-# README for figures folder
-This folder stores figures that are produced along the dat analysis process.
+README for figures folder
+================
 
-## Figures list and description
+This folder stores figures that are produced along the data analysis
+process.
+
+# Figures list and description
+
 Here is a descriptive list of the different figures

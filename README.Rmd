@@ -47,7 +47,7 @@ This folder contains the rmd file, and its corresponding output file(s), for
 the final document(s) associated with the data analysis of the project 
 (e.g. A paper).
 
-## [output]()
+## [output](output)
 Holds any other output (e.g. pdf or txt) files produced by the different
 scripts.
 Like the session information associated with each script.

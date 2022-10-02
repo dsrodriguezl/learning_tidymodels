@@ -1,7 +1,6 @@
 # Set up ----
 # Import personal functions to use across scripts
-source(here::here("scripts"
-                  , "general_functions.R"))
+source(here::here("scripts", "general_functions.R"))
 
 # Packages ----
 
@@ -15,4 +14,22 @@ install_new_packs(analysis_packs)
 load_my_packs(analysis_packs)
 
 analysis_objects <- c(ls(), "analysis_objects")
+
 # Data -----
+source(here("scripts", "data.R"))
+
+# EDA ----
+source(here("scripts", "eda.R"))
+
+# ----
+
+
+# Knit all rmarkdown files ----
+## Make a list of all the rmd files in the 
+rmd_list <- list.files(path = here()
+                       , pattern = "Rmd"
+                       , full.names = T
+                       , recursive = T)
+
+lapply(rmd_list, knitr::knit)
+

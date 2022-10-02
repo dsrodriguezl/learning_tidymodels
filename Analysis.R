@@ -5,7 +5,7 @@ source(here::here("scripts", "general_functions.R"))
 # Packages ----
 
 # Vector holding the list of packages that will be used
-analysis_packs<-c("here", "tidyverse")
+analysis_packs<-c("here", "tidyverse", "ggtext", "ragg")
 
 # Install packages not yet installed
 install_new_packs(analysis_packs)
@@ -13,6 +13,12 @@ install_new_packs(analysis_packs)
 # Load packages
 load_my_packs(analysis_packs)
 
+# Load custom ggplot themes
+source(here("scripts", "custom_ggplot_themes.R"))
+
+# A vector to contain the names of the objects generated within the master script
+## Any object named within this vector will be preserved in the environment
+## after the environment cleaning last steps of each script
 analysis_objects <- c(ls(), "analysis_objects")
 
 # Data -----
@@ -22,15 +28,21 @@ source(here("scripts", "data.R"))
 batch <- "full"
 source(here("scripts", "eda.R"))
 
-# ----
-
+# PCA ----
+batch <- "full"
+source(here("scripts", "pca.R"))
 
 # Knit all rmarkdown files ----
-## Make a list of all the rmd files in the 
+## Make a list of all the rmd files in the repository
 rmd_list <- list.files(path = here()
                        , pattern = "Rmd"
                        , full.names = T
                        , recursive = T)
 
+## Knit the rmd files in the list
 lapply(rmd_list, knitr::knit)
 
+## Report session information
+capture.output(sessionInfo()
+               , file = here("output"
+                             ,"SInf_analysis-master-script.txt"))

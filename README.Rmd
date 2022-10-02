@@ -11,10 +11,12 @@ I created this repository to learn and practice the Tidymodels workflow/approach
 modeling and machine learning in R.
 
 # The structure of the reepository
+```{r}
+fs::dir_tree()
+```
 This repository follows a personal template for repositories of data analysis 
 projects. 
-Some of the folders are likely to not be used within this particular repository,
-as they might not be relevant for its main purpose.
+Some of the folders are likely to not be used within this particular repository, as they might not be relevant for its main purpose.
 
 I structured the data manipulations and analyses within the project with
 reproducible science principles in mind.

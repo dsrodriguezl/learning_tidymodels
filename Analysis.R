@@ -19,6 +19,7 @@ analysis_objects <- c(ls(), "analysis_objects")
 source(here("scripts", "data.R"))
 
 # EDA ----
+batch <- "full"
 source(here("scripts", "eda.R"))
 
 # ----

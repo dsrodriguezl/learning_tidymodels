@@ -9,7 +9,7 @@ install_new_packs(script_packs)
 load_my_packs(script_packs)
 
 penguins_raw
-my_data <- penguins_raw |> 
+full <- penguins_raw |> 
   transmute(species = Species |> 
               str_split(" ", simplify = T) |> as.data.frame() |> 
               pull(1) |> as.factor()
@@ -21,7 +21,16 @@ my_data <- penguins_raw |>
             , sex = Sex |> str_to_lower() |> as.factor()
             , year = `Date Egg` |> as.Date() |> format("%Y") |> as.integer())
 
-save(list = c("my_data")
+
+data_sets <- c("full")
+for (i in full$island |> unique()) {
+  tmp <- full |> filter(island == i)
+  assign(i, tmp)
+  data_sets <- c(data_sets, i)
+  rm(tmp, i)
+}
+
+save(list = data_sets
      , file = here("data"
                    , "processed"
                    , "my_data.Rdata"))

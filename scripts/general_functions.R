@@ -12,3 +12,9 @@ load_my_packs <- function(packages) {
     invisible()
 }
 
+# Custom knit with md output ----
+my_knit_md <- function(rmd_to_md.file_path){
+  knitr::knit(input = rmd_to_md.file_path
+              , output = rmd_to_md.file_path |>
+                str_replace("Rmd", "md"))
+}

@@ -35,12 +35,15 @@ source(here("scripts", "pca.R"))
 # Knit all rmarkdown files ----
 ## Make a list of all the rmd files in the repository
 rmd_list <- list.files(path = here()
-                       , pattern = "Rmd"
+                       , pattern = ".Rmd"
                        , full.names = T
-                       , recursive = T)
+                       , recursive = T) 
 
-## Knit the rmd files in the list
-lapply(rmd_list, knitr::knit)
+readmes_list <- rmd_list |> 
+  str_subset("README")
+
+## Knit the all the README files
+lapply(rmd_list, my_knit_md)
 
 ## Report session information
 capture.output(sessionInfo()

@@ -10,16 +10,20 @@ load_my_packs(script_packs)
 
 penguins_raw
 full <- penguins_raw |> 
-  transmute(species = Species |> 
-              str_split(" ", simplify = T) |> as.data.frame() |> 
-              pull(1) |> as.factor()
-            , island = Island |> as.factor()
+  transmute(island = Island
+            , species = Species |> 
+              # Keep only the specific epithets for the species names
+              str_split(" ", simplify = T) |> as.data.frame() |> pull(1) 
+            # Text entries for sex are transformed into lower case
+            , sex = Sex |> str_to_lower()
             , bill_length_mm = `Culmen Length (mm)`
             , bill_depth_mm = `Culmen Depth (mm)`
             , flipper_length_mm = `Flipper Length (mm)` |> as.integer()
             , body_mass_g = `Body Mass (g)` |> as.integer()
-            , sex = Sex |> str_to_lower() |> as.factor()
-            , year = `Date Egg` |> as.Date() |> format("%Y") |> as.integer())
+            , year = `Date Egg` |> as.Date() |> format("%Y") |> as.integer()) |> 
+  filter(!is.na(sex)) |> 
+  # Qualitative variables are transformed from character strings into factors
+  mutate_if(is.character, as.factor)
 
 
 data_sets <- c("full")
@@ -30,6 +34,9 @@ for (i in full$island |> unique()) {
   rm(tmp, i)
 }
 
+# Finish ----
+
+# Export data sets within a Rdata file
 save(list = data_sets
      , file = here("data"
                    , "processed"

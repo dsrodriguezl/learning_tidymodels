@@ -7,8 +7,8 @@ output: github_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 # The prupose of this repository
-I created this repository to learn and practice the Tidymodels workflow/approach
-modeling and machine learning in R.
+I created this repository to learn and practice the Tidymodels 
+workflow/approach modeling and machine learning in R.
 
 # The structure of the reepository
 ```{r}

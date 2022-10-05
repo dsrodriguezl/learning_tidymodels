@@ -40,7 +40,17 @@ my_data |>
                            override.aes = list(shape = 21))) +
   scale_shape_manual(values = c("male" = 24
                                 , "female" = 25)) +
-  scale_linetype_discrete()
+  scale_linetype_discrete() +
+  labs(y = "flipper length (mm)"
+       , x = "body mass(g)")
+
+ggsave(here("figs"
+            , paste0("flipper-length_v_body-mass_", batch,".png"))
+       , dpi = "retina"
+       , width = 8
+       , height = 4       , units = "in"
+       , device = agg_png
+       , scaling = 0.5)
 
 # Build and train the model ----
 # These steps can be done in a single pipe line, but here I did it in two steps
@@ -73,6 +83,14 @@ lm_fit_tidy |>
                               , color = "grey70"
                               , linetype = "dashed"))
 
+ggsave(here("figs"
+            , paste0("lm_dw-plot_", batch,".png"))
+       , dpi = "retina"
+       , width = 8
+       , height = 4       , units = "in"
+       , device = agg_png
+       , scaling = 0.5)
+
 # predict with the model ----
 ## What would be the flipper length of ficticial Adelie penguins of 5000g?
 ### Create the new data set with the humonguous ficticial Adelie penguins
@@ -93,16 +111,25 @@ conf_int_prediction
 new_plot_data <- humongous_adelies |> 
   bind_cols(prediction
             , conf_int_prediction)
+new_plot_data
 
 new_plot_data |> ggplot(aes(x = sex
                             , shape = sex)) +
   geom_point(aes(y = .pred)
-             , size = 2) +
+             , size = 3) +
   geom_errorbar(aes(ymin = .pred_lower
                     , ymax = .pred_upper
                     , width = 0.2
                     )) +
-  
+  labs(y = "flipper length (mm")
+
+ggsave(here("figs"
+            , paste0("flipper-length-pred_bodymass-500-adel_", batch,".png"))
+       , dpi = "retina"
+       , width = 8
+       , height = 4       , units = "in"
+       , device = agg_png
+       , scaling = 0.5)
   
 # Finish ----
 

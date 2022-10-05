@@ -1,3 +1,6 @@
+# Start timer for script sourcing process
+tic("EDA script")
+
 # Packages ----
 # Vector holding the list of packages that will be used
 script_packs <- c("skimr")
@@ -60,6 +63,9 @@ capture.output(sessionInfo()
 
 ## Detach/unload packages
 lapply(script_packs, unloadNamespace)
+
+# Stop timer for script sourcing process
+toc()
 
 ## Clear environment
 objects_list <- ls() |> 

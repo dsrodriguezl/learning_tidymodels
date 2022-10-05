@@ -1,6 +1,9 @@
+# Start timer for script sourcing process
+tic("PCA script")
+
 # Packages ----
 # Vector holding the list of packages that will be used
-script_packs <- c("tidymodels", "patchwork")
+script_packs <- c("tidymodels")
 
 # Install packages not yet installed
 install_new_packs(script_packs)
@@ -175,8 +178,13 @@ capture.output(sessionInfo()
 ## Detach/unload packages
 lapply(script_packs, unloadNamespace)
 
+# Stop timer for script sourcing process
+toc()
+
 ## Clear environment
 objects_list <- ls() |> 
   str_remove_all(analysis_objects |>
                    paste(collapse = "|"))
 rm(list = c(objects_list[nzchar(objects_list)], "objects_list"))
+
+

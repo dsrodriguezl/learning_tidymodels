@@ -5,7 +5,7 @@ source(here::here("scripts", "general_functions.R"))
 # Packages ----
 
 # Vector holding the list of packages that will be used
-analysis_packs<-c("here", "tidyverse", "ggtext", "ragg")
+analysis_packs<-c("here", "tictoc", "beepr", "tidyverse", "ggtext", "ragg")
 
 # Install packages not yet installed
 install_new_packs(analysis_packs)
@@ -26,11 +26,14 @@ source(here("scripts", "data.R"))
 
 # EDA ----
 batch <- "full"
-source(here("scripts", "eda.R"))
+analysis_objects <- c(analysis_objects, "batch")
+source(here("scripts", "eda.R")); beep("complete")
 
 # PCA ----
-batch <- "full"
-source(here("scripts", "pca.R"))
+source(here("scripts", "pca.R")); beep("complete")
+
+# lm ----
+source(here("scripts", "lm.R")); beep("complete")
 
 # Knit all rmarkdown files ----
 ## Make a list of all the rmd files in the repository

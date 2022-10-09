@@ -32,8 +32,14 @@ source(here("scripts", "eda.R")); beep("complete")
 # PCA ----
 source(here("scripts", "pca.R")); beep("complete")
 
+# LDA ----
+source(here("scripts", "lda.R")); beep("complete")
+
 # lm ----
 source(here("scripts", "lm.R")); beep("complete")
+
+# random forest ----
+source(here("sripts", "random_forest.R"))
 
 # Knit all rmarkdown files ----
 ## Make a list of all the rmd files in the repository

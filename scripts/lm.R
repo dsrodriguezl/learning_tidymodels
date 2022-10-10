@@ -38,8 +38,10 @@ my_data |>
                            # include filling, so it can show
                            # the color of the fill
                            override.aes = list(shape = 21))) +
-  scale_shape_manual(values = c("male" = 24
-                                , "female" = 25)) +
+  scale_shape_manual(values = c("female" = 25
+                                , "male" = 24)
+                     , guide = guide_legend(override.aes = 
+                                              list(color = "black"))) +
   scale_linetype_discrete() +
   labs(y = "flipper length (mm)"
        , x = "body mass(g)")

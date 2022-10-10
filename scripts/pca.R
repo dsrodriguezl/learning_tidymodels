@@ -131,8 +131,10 @@ pca_plot <- pca_scores |>
                                       # include filling, so it can show
                                       # the color of the fill
                                       override.aes = list(shape = 21))) +
-  scale_shape_manual(values = c("male" = 24
-                                , "female" = 25)) +
+  scale_shape_manual(values = c("female" = 25
+                                , "male" = 24)
+                     , guide = guide_legend(override.aes = 
+                                              list(color = "black"))) +
   facet_wrap(vars(island)) +
   geom_segment(data = wide_pca_coef
                , aes(xend = PC1

@@ -41,7 +41,7 @@ source(here("scripts", "lm.R")); beep("complete")
 # random forest ----
 source(here("sripts", "random_forest.R"))
 
-# Knit all rmarkdown files ----
+# Knit rmarkdown files ----
 ## Make a list of all the rmd files in the repository
 rmd_list <- list.files(path = here()
                        , pattern = ".Rmd"

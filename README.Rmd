@@ -12,7 +12,7 @@ workflow/approach for modeling and machine learning in R.
 
 # The structure of the reepository
 ```{r}
-fs::dir_tree()
+fs::dir_tree(recurse = 1)
 ```
 This repository follows a personal template for repositories of data analysis 
 projects. 

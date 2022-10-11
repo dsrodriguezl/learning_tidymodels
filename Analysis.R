@@ -1,3 +1,5 @@
+tictoc::tic("Analysis master script")
+
 # Set up ----
 # Import personal functions to use across scripts
 source(here::here("scripts", "general_functions.R"))
@@ -27,19 +29,19 @@ source(here("scripts", "data.R"))
 # EDA ----
 batch <- "full"
 analysis_objects <- c(analysis_objects, "batch")
-source(here("scripts", "eda.R")); beep("complete")
+source(here("scripts", "eda.R")); beep()
 
 # PCA ----
-source(here("scripts", "pca.R")); beep("complete")
+source(here("scripts", "pca.R")); beep()
 
 # LDA ----
-source(here("scripts", "lda.R")); beep("complete")
+source(here("scripts", "lda.R")); beep()
 
 # lm ----
-source(here("scripts", "lm.R")); beep("complete")
+source(here("scripts", "lm.R")); beep()
 
 # random forest ----
-source(here("sripts", "random_forest.R"))
+source(here("scripts", "random_forest.R")); beep()
 
 # Knit rmarkdown files ----
 ## Make a list of all the rmd files in the repository
@@ -58,3 +60,5 @@ lapply(rmd_list, my_knit_md)
 capture.output(sessionInfo()
                , file = here("output"
                              ,"SInf_analysis-master-script.txt"))
+
+tictoc::toc(); beep("complete")

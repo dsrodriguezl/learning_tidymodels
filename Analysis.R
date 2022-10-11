@@ -48,10 +48,13 @@ source(here("scripts", "random_forest.R")); beep()
 rmd_list <- list.files(path = here()
                        , pattern = ".Rmd"
                        , full.names = T
-                       , recursive = T) 
+                       , recursive = T) |> 
+  # Avoid package library files
+  str_subset('/renv/', negate = T) 
 
 readmes_list <- rmd_list |> 
-  str_subset("README")
+  # Only README files
+  str_subset("README") 
 
 ## Knit the all the README files
 lapply(rmd_list, my_knit_md)

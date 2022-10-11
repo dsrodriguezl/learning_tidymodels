@@ -642,6 +642,14 @@
         "vctrs"
       ]
     },
+    "tictoc": {
+      "Package": "tictoc",
+      "Version": "1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e1a2cb41e4be769a941c90c11469db90",
+      "Requirements": []
+    },
     "tidyr": {
       "Package": "tidyr",
       "Version": "1.2.1",

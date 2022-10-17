@@ -5,11 +5,8 @@ tic("LDA script")
 # Vector holding the list of packages that will be used
 script_packs <- c("tidymodels", "discrim")
 
-# Install packages not yet installed
-install_new_packs(script_packs)
-
-# Load packages
-load_my_packs(script_packs)
+# Install / load packages
+pacman:p_load(char = script_packs)
 
 # Data ----
 # load data 
@@ -154,7 +151,7 @@ capture.output(sessionInfo()
                              ,"SInf_lda-script.txt"))
 
 ## Detach/unload packages
-lapply(script_packs, unloadNamespace)
+pacman::p_unload(char = script_packs)
 
 # Stop timer for script sourcing process
 toc()

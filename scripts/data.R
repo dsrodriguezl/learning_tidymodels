@@ -2,11 +2,8 @@
 # Vector holding the list of packages that will be used
 script_packs <- c("palmerpenguins")
 
-# Install packages not yet installed
-install_new_packs(script_packs)
-
-# Load packages
-load_my_packs(script_packs)
+# Install / load packages
+pacman:p_load(char = script_packs)
 
 penguins_raw
 full <- penguins_raw |> 
@@ -48,7 +45,7 @@ capture.output(sessionInfo()
                              ,"SInf_data-script.txt"))
 
 ## Detach/unload packages
-lapply(script_packs, unloadNamespace)
+pacman::p_unload(char = script_packs)
 
 ## Clear environment
 objects_list <- ls() |> 

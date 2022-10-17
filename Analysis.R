@@ -9,11 +9,8 @@ source(here::here("scripts", "general_functions.R"))
 # Vector holding the list of packages that will be used
 analysis_packs<-c("here", "tictoc", "beepr", "tidyverse", "ggtext", "ragg")
 
-# Install packages not yet installed
-install_new_packs(analysis_packs)
-
-# Load packages
-load_my_packs(analysis_packs)
+# install / load packages
+pacman::p_load(char = analysis_packs)
 
 # Load custom ggplot themes
 source(here("scripts", "custom_ggplot_themes.R"))

@@ -3,7 +3,7 @@
 script_packs <- c("palmerpenguins")
 
 # Install / load packages
-pacman:p_load(char = script_packs)
+pacman::p_load(char = script_packs)
 
 penguins_raw
 full <- penguins_raw |> 
@@ -30,6 +30,9 @@ for (i in full$island |> unique()) {
   data_sets <- c(data_sets, i)
   rm(tmp, i)
 }
+
+print("Data sets:")
+print(data_sets)
 
 # Finish ----
 

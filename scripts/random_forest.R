@@ -6,7 +6,7 @@ tic("random forest script")
 script_packs <- c("tidymodels", "doParallel")
 
 # Install / load packages
-pacman:p_load(char = script_packs)
+pacman::p_load(char = script_packs)
 
 # Data ----
 # load data 

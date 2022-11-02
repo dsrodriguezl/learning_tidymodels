@@ -6,7 +6,7 @@ tic("EDA script")
 script_packs <- c("skimr")
 
 # Install / load packages
-pacman:p_load(char = script_packs)
+pacman::p_load(char = script_packs)
 
 # Data ----
 # load data

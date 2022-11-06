@@ -7,7 +7,7 @@ source(here::here("scripts", "general_functions.R"))
 # Packages ----
 
 # Vector holding the list of packages that will be used
-analysis_packs<-c("here", "tictoc", "beepr", "tidyverse", "ggtext", "ragg")
+analysis_packs <- c("here", "tictoc", "beepr", "tidyverse", "ggtext", "ragg")
 
 # install / load packages
 pacman::p_load(char = analysis_packs)
@@ -24,7 +24,8 @@ analysis_objects <- c(ls(), "analysis_objects")
 source(here("scripts", "data.R"))
 
 # EDA ----
-batch <- "full"
+#  options: full, Biscoe, Dream, Torgersen
+batch <- "full" 
 analysis_objects <- c(analysis_objects, "batch")
 source(here("scripts", "eda.R")); beep()
 

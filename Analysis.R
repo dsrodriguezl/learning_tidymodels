@@ -1,8 +1,10 @@
-tictoc::tic("Analysis master script")
+# tictoc::tic("Analysis master script")
 
 # Set up ----
+# package here and pacman are needed to begin to use the code within the project
 install.packages("here")
 install.packages("pacman")
+
 # Import personal functions to use across scripts
 source(here::here("scripts", "general_functions.R"))
 
@@ -64,4 +66,4 @@ capture.output(sessionInfo()
                , file = here("output"
                              ,"SInf_analysis-master-script.txt"))
 
-tictoc::toc(); beep("complete")
+# tictoc::toc(); beep("complete")

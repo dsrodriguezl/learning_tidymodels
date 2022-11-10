@@ -3,7 +3,7 @@ tic("random forest script")
 
 # Packages ----
 # Vector holding the list of packages that will be used
-script_packs <- c("tidymodels", "doParallel")
+script_packs <- c("tidymodels", "randomForest", "doParallel")
 
 # Install / load packages
 # pacman::p_load(char = script_packs)

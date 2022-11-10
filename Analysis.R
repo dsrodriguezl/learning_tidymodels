@@ -1,6 +1,8 @@
 tictoc::tic("Analysis master script")
 
 # Set up ----
+install.packages("here")
+install.packages("pacman")
 # Import personal functions to use across scripts
 source(here::here("scripts", "general_functions.R"))
 
@@ -10,7 +12,7 @@ source(here::here("scripts", "general_functions.R"))
 analysis_packs <- c("here", "tictoc", "beepr", "tidyverse", "ggtext", "ragg")
 
 # install / load packages
-pacman::p_load(char = analysis_packs)
+load_my_packs(analysis_packs)
 
 # Load custom ggplot themes
 source(here("scripts", "custom_ggplot_themes.R"))

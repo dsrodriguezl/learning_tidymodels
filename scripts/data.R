@@ -3,7 +3,8 @@
 script_packs <- c("palmerpenguins")
 
 # Install / load packages
-pacman::p_load(char = script_packs)
+# pacman::p_load(char = script_packs)
+load_my_packs(script_packs)
 
 penguins_raw
 full <- penguins_raw |> 

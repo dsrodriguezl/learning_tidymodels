@@ -3,10 +3,11 @@ tic("EDA script")
 
 # Packages ----
 # Vector holding the list of packages that will be used
-script_packs <- c("skimr")
+script_packs <- c("skimr", "GGally")
 
 # Install / load packages
-pacman::p_load(char = script_packs)
+# pacman::p_load(char = script_packs)
+load_my_packs(script_packs)
 
 # Data ----
 # load data
@@ -16,21 +17,21 @@ load(here("data", "processed", "my_data.Rdata"))
 my_data <- get(batch)
 
 # Pair plots ----
-p1 <- GGally::ggpairs(my_data, aes(alpha = 0.9)) +
+p1 <- ggpairs(my_data, aes(alpha = 0.9)) +
   theme_classic()
 
 
-p2 <- GGally::ggpairs(my_data, aes(color = island, alpha = 0.9)) +
+p2 <- ggpairs(my_data, aes(color = island, alpha = 0.9)) +
   scale_color_viridis_d(option = "plasma") +
   scale_fill_viridis_d(option = "plasma") + 
   theme_dark()
 
-p3 <- GGally::ggpairs(my_data, aes(color = species, alpha = 0.9)) +
+p3 <- ggpairs(my_data, aes(color = species, alpha = 0.9)) +
   scale_color_viridis_d() +
   scale_fill_viridis_d() + 
   theme_dark()
 
-p4 <- GGally::ggpairs(my_data, aes(color = sex, alpha = 0.9)) +
+p4 <- ggpairs(my_data, aes(color = sex, alpha = 0.9)) +
   scale_color_viridis_d(option = "mako") +
   scale_fill_viridis_d(option = "mako") + 
   theme_dark()
